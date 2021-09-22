@@ -36,23 +36,53 @@ function writePassword() {
 
   if (!confirmSpecialCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
     choices = alert("You must choose atleast 1 of the criteria.")
-  } 
+  }
   else if (confirmSpecialCharacter && confirmNumber && confirmUppercase) {
-      choices = specialCharacters.concat(specialCharacters, numbers, upperCase);
+    choices = specialCharacters.concat(specialCharacters, numbers, upperCase);
   }
   else if (confirmSpecialCharacter && confirmNumber && confirmUppercase) {
     choices = character.concat(numbers, upperCase);
-}
+  }
   else if (confirmSpecialCharacter && confirmNumber && confirmLowercase) {
     choices = character.concat(numbers, lowerCase);
-}
+  }
   else if (confirmSpecialCharacter && confirmLowercase && confirmUppercase) {
     choices = character.concat(lowerCase, upperCase);
-}
+  }
   else if (confirmNumber && confirmLowercase && confirmUppercase) {
-    choices = number.concat(lowerCase, upperCase);
+    choices = numbers.concat(lowerCase, upperCase);
+  }
+  else if (confirmSpecialCharacter && confirmNumber) {
+    choices = character.concat(numbers);
+  } 
+  else if (confirmSpecialCharacter && confirmLowercase) {
+    choices = character.concat(lowerCase);
+  } 
+  else if (confirmSpecialCharacter && confirmUppercase) {
+    choices = character.concat(upperCase);
+  }
+  else if (confirmLowercase && confirmNumber) {
+    choices = lowerCase.concat(numbers);
+  } 
+  else if (confirmLowercase && confirmUppercase) {
+    choices = lowerCase.concat(upperCase);
+  } 
+  else if (confirmNumber && confirmUppercase) {
+    choices = numbers.concat(upperCase);
+  }
+  else if (confirmCharacter) {
+    choices = specialCharacters;
 }
-  
+  else if (confirmNumber) {
+    choices = numbers;
+}
+  else if (confirmLowercase) {
+    choices = lowerCase;
+}
+  else if (confirmUppercase) {
+    choices = space.concat(upperCase);
+};
+
 
 
 
