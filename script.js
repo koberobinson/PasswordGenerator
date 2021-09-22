@@ -37,29 +37,32 @@ function writePassword() {
   if (!confirmSpecialCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
     choices = alert("You must choose atleast 1 of the criteria.")
   }
+  else if (confirmSpecialCharacter && confirmNumber && confirmLowercase && confirmUppercase) {
+    choices = specialCharacters.concat(numbers, upperCase, lowerCase);
+  }
   else if (confirmSpecialCharacter && confirmNumber && confirmUppercase) {
     choices = specialCharacters.concat(specialCharacters, numbers, upperCase);
   }
   else if (confirmSpecialCharacter && confirmNumber && confirmUppercase) {
-    choices = character.concat(numbers, upperCase);
+    choices = specialCharacters.concat(numbers, upperCase);
   }
   else if (confirmSpecialCharacter && confirmNumber && confirmLowercase) {
-    choices = character.concat(numbers, lowerCase);
+    choices = specialCharacters.concat(numbers, lowerCase);
   }
   else if (confirmSpecialCharacter && confirmLowercase && confirmUppercase) {
-    choices = character.concat(lowerCase, upperCase);
+    choices = specialCharacters.concat(lowerCase, upperCase);
   }
   else if (confirmNumber && confirmLowercase && confirmUppercase) {
     choices = numbers.concat(lowerCase, upperCase);
   }
   else if (confirmSpecialCharacter && confirmNumber) {
-    choices = character.concat(numbers);
+    choices = specialCharacters.concat(numbers);
   } 
   else if (confirmSpecialCharacter && confirmLowercase) {
-    choices = character.concat(lowerCase);
+    choices = specialCharacters.concat(lowerCase);
   } 
   else if (confirmSpecialCharacter && confirmUppercase) {
-    choices = character.concat(upperCase);
+    choices = specialCharacters.concat(upperCase);
   }
   else if (confirmLowercase && confirmNumber) {
     choices = lowerCase.concat(numbers);
@@ -72,31 +75,39 @@ function writePassword() {
   }
   else if (confirmCharacter) {
     choices = specialCharacters;
-}
+  }
   else if (confirmNumber) {
     choices = numbers;
-}
+  }
   else if (confirmLowercase) {
     choices = lowerCase;
-}
+  }
   else if (confirmUppercase) {
     choices = space.concat(upperCase);
-};
+  };
 
+  var finalPassword = [];
 
+  for (var i = 0; i < enter; i++) {
+  var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+  finalPassword.push(pickChoices);
 
-
-
+  var ps = finalPassword.join("");
+    UserInput(ps);
+    return ps;
+    }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-
 }
+
+function UserInput(ps) {
+  document.getElementById("password").textContent = ps;
+
+  }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
