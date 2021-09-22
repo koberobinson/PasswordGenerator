@@ -5,6 +5,7 @@ var confirmNumber;
 var confirmSpecialCharacter;
 var confirmUppercase;
 var confirmLowercase;
+var choices
 
 specialCharacters = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
 
@@ -57,23 +58,23 @@ function writePassword() {
   }
   else if (confirmSpecialCharacter && confirmNumber) {
     choices = specialCharacters.concat(numbers);
-  } 
+  }
   else if (confirmSpecialCharacter && confirmLowercase) {
     choices = specialCharacters.concat(lowerCase);
-  } 
+  }
   else if (confirmSpecialCharacter && confirmUppercase) {
     choices = specialCharacters.concat(upperCase);
   }
   else if (confirmLowercase && confirmNumber) {
     choices = lowerCase.concat(numbers);
-  } 
+  }
   else if (confirmLowercase && confirmUppercase) {
     choices = lowerCase.concat(upperCase);
-  } 
+  }
   else if (confirmNumber && confirmUppercase) {
     choices = numbers.concat(upperCase);
   }
-  else if (confirmCharacter) {
+  else if (confirmSpecialCharacter) {
     choices = specialCharacters;
   }
   else if (confirmNumber) {
@@ -83,21 +84,19 @@ function writePassword() {
     choices = lowerCase;
   }
   else if (confirmUppercase) {
-    choices = space.concat(upperCase);
+    choices = upperCase;
   };
 
-  var finalPassword = [];
+  var password = [];
 
   for (var i = 0; i < enter; i++) {
-  var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-  finalPassword.push(pickChoices);
+    var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(pickChoices);
 
-  var ps = finalPassword.join("");
+    var ps = password.join("");
     UserInput(ps);
-    return ps;
-    }
+  }
 
-  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -106,7 +105,7 @@ function writePassword() {
 function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
-  }
+}
 
 
 // Add event listener to generate button
