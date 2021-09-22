@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 var enter;
 var confirmNumber;
-var confirmCharacter;
+var confirmSpecialCharacter;
 var confirmUppercase;
 var confirmLowercase;
 
@@ -14,7 +14,26 @@ lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 
 
 // Write password to the #password input
-function writePassword()  { 
+function writePassword() {
+
+  enter = parseInt(prompt("Choose a number between 8 and 128."));
+
+  if (!enter) {
+    alert("This needs a value");
+  } else if (enter < 8 || enter > 128) {
+    enter = parseInt(prompt("Number has to be between 8 and 128."));
+  } else {
+
+    confirmNumber = confirm("Will password this contain Numbers?");
+    confirmSpecialCharacter = confirm("Will this password contain Special Characters?");
+    confirmUppercase = confirm("WIll this password contain Upper Case Letters?");
+    confirmLowercase = confirm("Will this password contain Lower Case Letters?");
+
+  };
+
+  if (!confirmSpecialCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+    choices = alert("You must choose atleast 1 of the criteria.")
+  } else if (confirmSpecialCharacter)
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
