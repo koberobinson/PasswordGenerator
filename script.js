@@ -50,25 +50,25 @@ function writePassword() {
     choices = character.concat(lowerCase, upperCase);
   }
   else if (confirmNumber && confirmLowercase && confirmUppercase) {
-    choices = number.concat(lowerCase, upperCase);
+    choices = numbers.concat(lowerCase, upperCase);
   }
-  else if (confirmCharacter && confirmNumber) {
-    choices = character.concat(number);
+  else if (confirmSpecialCharacter && confirmNumber) {
+    choices = character.concat(numbers);
   } 
-  else if (confirmCharacter && confirmLowercase) {
-    choices = character.concat(alpha);
+  else if (confirmSpecialCharacter && confirmLowercase) {
+    choices = character.concat(lowerCase);
   } 
-  else if (confirmCharacter && confirmUppercase) {
-    choices = character.concat(alpha2);
+  else if (confirmSpecialCharacter && confirmUppercase) {
+    choices = character.concat(upperCase);
   }
   else if (confirmLowercase && confirmNumber) {
-    choices = alpha.concat(number);
+    choices = lowerCase.concat(numbers);
   } 
   else if (confirmLowercase && confirmUppercase) {
-    choices = alpha.concat(alpha2);
+    choices = lowerCase.concat(upperCase);
   } 
   else if (confirmNumber && confirmUppercase) {
-    choices = number.concat(alpha2);
+    choices = numbers.concat(upperCase);
   }
 
 
