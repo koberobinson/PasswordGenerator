@@ -7,8 +7,11 @@ var confirmUppercase;
 var confirmLowercase;
 
 specialCharacters = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
+
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
 upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "U", "R", "S", "T", "U", "V", "W", "X", "y", "Z"];
+
 lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 
@@ -33,7 +36,28 @@ function writePassword() {
 
   if (!confirmSpecialCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
     choices = alert("You must choose atleast 1 of the criteria.")
-  } else if (confirmSpecialCharacter)
+  } 
+  else if (confirmSpecialCharacter && confirmNumber && confirmUppercase) {
+      choices = specialCharacters.concat(specialCharacters, numbers, upperCase);
+  }
+  else if (confirmSpecialCharacter && confirmNumber && confirmUppercase) {
+    choices = character.concat(numbers, upperCase);
+}
+  else if (confirmSpecialCharacter && confirmNumber && confirmLowercase) {
+    choices = character.concat(numbers, lowerCase);
+}
+  else if (confirmSpecialCharacter && confirmLowercase && confirmUppercase) {
+    choices = character.concat(lowerCase, upperCase);
+}
+  else if (confirmNumber && confirmLowercase && confirmUppercase) {
+    choices = number.concat(lowerCase, upperCase);
+}
+  
+
+
+
+
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
