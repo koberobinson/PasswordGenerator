@@ -70,6 +70,7 @@ function writePassword() {
   else if (confirmNumber && confirmUppercase) {
     choices = numbers.concat(upperCase);
   }
+<<<<<<< HEAD
   else if (confirmCharacter) {
     choices = specialCharacters;
 }
@@ -82,6 +83,8 @@ function writePassword() {
   else if (confirmUppercase) {
     choices = space.concat(upperCase);
 };
+=======
+>>>>>>> 212052cfa7de7b0cecf5a9254c57b2660864bb06
 
 
 
