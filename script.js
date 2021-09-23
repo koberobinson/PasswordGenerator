@@ -7,11 +7,11 @@ var confirmUppercase;
 var confirmLowercase;
 var choices
 
-specialCharacters = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
+specialCharacters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "U", "R", "S", "T", "U", "V", "W", "X", "y", "Z"];
+upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "y", "Z"];
 
 lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -24,11 +24,14 @@ function writePassword() {
 
   if (!enter) {
     alert("This needs a value");
-  } else if (enter < 8 || enter > 128) {
+    return;
+  } 
+  if (enter < 8 || enter > 128) {
     enter = parseInt(prompt("Number has to be between 8 and 128."));
-  } else {
+  } 
+  else {
 
-    confirmNumber = confirm("Will password this contain Numbers?");
+    confirmNumber = confirm("Will this password contain Numbers?");
     confirmSpecialCharacter = confirm("Will this password contain Special Characters?");
     confirmUppercase = confirm("WIll this password contain Upper Case Letters?");
     confirmLowercase = confirm("Will this password contain Lower Case Letters?");
@@ -37,6 +40,7 @@ function writePassword() {
 
   if (!confirmSpecialCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
     choices = alert("You must choose atleast 1 of the criteria.")
+    return;
   }
   else if (confirmSpecialCharacter && confirmNumber && confirmLowercase && confirmUppercase) {
     choices = specialCharacters.concat(numbers, upperCase, lowerCase);
@@ -93,6 +97,8 @@ function writePassword() {
     var pickChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(pickChoices);
   }
+  var ps = password.join("")
+  UserInput(ps);
 
   var passwordText = document.querySelector("#password");
 
@@ -101,7 +107,7 @@ function writePassword() {
 
 function UserInput(ps) {
   document.getElementById("password").textContent = ps;
-
+  join("")
 }
 
 
