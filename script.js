@@ -39,7 +39,7 @@ function writePassword() {
   };
 
   if (!confirmSpecialCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-    choices = alert("You must choose atleast 1 of the criteria.")
+    choices = alert("You must choose atleast 1 of the options.")
     return;
   }
   else if (confirmSpecialCharacter && confirmNumber && confirmLowercase && confirmUppercase) {
