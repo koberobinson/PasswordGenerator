@@ -16,9 +16,8 @@ Installation of this project is very simple. All there is to do is click generat
 Credits go out to the TA Ben Fawcett as he was able to help me out with questions about this assignment to get it working properly.
 
 ## The Password Generator
-```md
+![Screenshot1](images/Screenshot1.png)
 
-```
 
 ## Link
 Link to the Password Generator: https://koberobinson.github.io/PasswordGenerator/
